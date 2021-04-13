@@ -8,6 +8,8 @@ var arr = []
 var currentRedX = -1
 var currentRedY = -1
 
+var canvasSize = 200;
+
 class gameTile {
   constructor(x, y) {
     this.orgx = x;
@@ -28,9 +30,7 @@ var canvas;
 window.onload = function(){
 
   canvas = document.getElementById('myCanvas');
-  canvas.addEventListener("click", (event) => {
-    onClick(event);
-  });
+  canvasSize = canvas.width;
 
   canvas.addEventListener('mousemove', function(event) {
     if(n==0){
@@ -53,7 +53,12 @@ window.onload = function(){
     }
     repaint();
 
-}, false);
+  }, false);
+  
+  canvas.addEventListener("click", (event) => {
+    onClick(event);
+    resetHighlights();
+  });
 }
 
 function resetHighlights(){
@@ -89,8 +94,8 @@ function repaint(){
   imageObj.src = "images/puzzle.jpg"
   imageObj.onload = function() {
   //Szerokosc i wysokosc tego elementu
-  destWidth = 500/n;
-  destHeight = 500/n;
+  destWidth = canvasSize/n;
+  destHeight = canvasSize/n;
   for( i = 0; i < n; i++){
     for (j = 0; j < n; j++) {
         // context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, i*100, j*100, destWidth, destHeight); // old one
@@ -112,7 +117,7 @@ function repaint(){
           // console.log("nice" + i*destWidth + " " + j*destHeight);
           context.globalAlpha = 0.5;
           context.fillStyle = "blue";
-          context.fillRect(i*destWidth, j*destHeight, 500/n, 500/n);
+          context.fillRect(i*destWidth, j*destHeight, canvasSize/n, canvasSize/n);
         }
       }
     }
@@ -132,8 +137,8 @@ function repaint(){
       var sourceWidth = this.width/n;
       var sourceHeight = this.height/n;
       //Szerokosc i wysokosc tego elementu
-      var destWidth = 500/n;
-      var destHeight = 500/n;
+      var destWidth = canvasSize/n;
+      var destHeight = canvasSize/n;
       // pozycja na canvasie
       var destX = currentRedX*destWidth;
       var destY = currentRedY*destHeight;
