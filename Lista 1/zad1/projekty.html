@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+<html lang ="pl" >
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Maziarz Site</title>
+        <link rel="stylesheet" href="main.css">
+      </head>
+  <body>
+	<header>
+		<a href="https://pwr.edu.pl"><img src="./images/logo_pwr.png" alt="pwr"></a>
+		<a href="https://wppt.pwr.edu.pl"><img src="./images/wppt_logo.png" alt="pwr"></a>
+		Wojciech Maziarz
+	</header>
+	<nav>
+		<ul>
+		  <li><a href="main.html">Home</a></li>
+		  <li><a href="projekty.html">Projekty</a></li>
+		  <li><a href="kontakt.html">Kontakt</a></li>
+		  <li><a href="lockstep.html">Lockstep MP</a></li>
+		  <li><a href="tts.html">TTS</a></li>
+		  <li><a href="https://github.com/Wojtini/">github</a></li>
+		</ul>
+	</nav>
+	
+	
+	
+	<article>
+		<h2>Moje projekty</h2>
+		
+		<section>
+		<h3>Isengard - Projekt Bazodanowy</h3>
+		Projekt miał na celu zaimplementować aplikację pozwalającą na przeglądanie oraz zamawianie książek.
+		Aplikacja jest podłączona do uprzednio skonfigurowanej bazy danych. Aplikacja posiada bezpieczny
+		system rejestracji i logowania posiadający zabezpieczenia przeciwko atakom sql injection.
+		<img src="./images/isengard.png" alt="Portret">
+		</section>
+		
+		<section>
+		<h3>Chińskie Warcaby</h3>
+		Gra napisana w Java umożliwiająca rozgrywkę sieciową od 2 do 6 graczy w Chińskie Warcaby. System został zaprojektowany z myślą łatwej modyfikacji
+		dlatego też bez problemu można dodać inne rozgrywki jak np. warcaby, szachy czy inne gry planszowe.
+		
+		<p>Fragment kody odpowiedzialny za generowanie ruchów</p>
+		<section>
+			<code>
+			<br>
+				public ArrayList&lt;Vector2&gt; getAvailableMovesForPos(Board board, int x, int y,boolean movedInThisTurn)
+				<br>{<br>
+				&ensp;ArrayList&lt;Vector2&gt; outcome = new ArrayList &lt;Vector2&gt;();<br>
+					&ensp;for(int i=0;i &lt; availableMoves.size();i++) {<br>
+				  &ensp;&ensp;Move option = availableMoves.get(i);<br>
+				 &ensp;&ensp; if(option instanceof NormalMove && movedInThisTurn) {<br>
+			//    &ensp;&ensp;&ensp;    System.out.println("Pomija ruch");<br>
+				 &ensp;&ensp; }else {<br>
+				&ensp;&ensp;&ensp;	option.generateMoves(board, x, y, outcome);<br>
+				&ensp;&ensp;  }<br>
+				&ensp;}<br>
+				return outcome;<br>
+			  }<br>
+			</code>
+		</section>
+		
+		<img src="./images/checkers.png" alt="Portret">
+		</section>
+		
+		<section>
+		<h3>Drzewo binarne</h3>
+		Graficzna reprezentacja drzewa binarnego. Aplikacja pozwala na tworzenie nowego drzewa o podanym typie danych oraz zapewnie podstawowe operacje na drzewie.
+		
+		<img src="./images/graf.png" alt="Portret">
+		</section>
+		
+		<section>
+		<h3>Shapes</h3>
+		
+		Projekt miał na celu zaimplementować prostą aplikację za pomocą której będzie można utworzyć podstawowe kształty
+		na płótnie, możliwe kształty to kwadrat, koło oraz trójkąt. Poza zmianą koloru kształtów można bez problemu zapisać.
+
+		
+		<img src="./images/paint.png" alt="Portret">
+		</section>
+	</article>
+	
+	
+	
+	<footer>
+		Wojciech Maziarz, whitem200@gmail.com
+	</footer>
+  </body>
+</html >

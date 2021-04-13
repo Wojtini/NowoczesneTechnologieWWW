@@ -1,0 +1,294 @@
+#hamburgermenu {
+	display: block;
+}
+
+.dropbtn	 {
+	display: none;
+}
+
+@media screen and (min-width: 400px) {
+
+	article>img {
+		float: left;
+	}
+	ul {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 888px) {
+
+	#hamburgermenu {
+		display: none;
+	}
+
+	.dropbtn	 {
+			display: block;
+			margin-left: 25%;
+			margin-right: 25%;
+			width: 50%;
+	}
+
+	.dropdown {
+		margin-left: 25%;
+		margin-right: 25%;
+		width: 50%;
+	}
+
+	ul>li a {
+		float: left;
+	}
+
+	li a:hover {
+		background-color: #111;
+		transition: 1s;
+	}
+
+	article {
+		padding: 10px;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	section {
+		padding: 10px;
+		margin: 10px;
+	}
+
+	ul {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	header {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	footer {
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+
+	article>img {
+		height: 250px;
+		width: auto;
+		margin: 10px;
+	}
+
+}
+.flex-container>img{
+	height: 50px;
+	width: auto;
+	margin: 12px;
+}
+
+
+footer {
+	text-align: center;
+	background-color: black;
+}
+
+article>img {
+	height: 250px;
+	width: auto;
+	margin: 10px;
+}
+
+body>header {
+	text-align: center;
+	background-color: rgba(101,102,103,0.5);
+	font-size: 50px;
+	height: auto;
+	min-height: 150px;
+}
+
+header img {
+	float: left;
+	max-width: 100px;
+	max-height: 100px;
+	margin: 12px;
+}
+
+img {
+  max-width: 100%;
+	max-height: 100%;
+	margin: 12px;
+}
+
+ul h2 {
+	text-align: center;
+}
+
+nav ul {
+	list-style-type: none;
+	padding: 0;
+	width: auto;
+	overflow: hidden;
+	background-color: rgba(20,80,60,1);
+}
+
+ul {
+	text-align: left;
+}
+
+nav li>a {
+	border: 1px solid #000;
+	border-left: 0px solid #000;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 15px 15px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+
+article {
+	background-color: rgba(49,51,53,0.8);
+	padding: 5px;
+	min-height: 300px;
+	text-align: center;
+}
+
+section {
+	background-color: rgba(101,102,103,0.5);
+	margin-bottom: 75px;
+	color: white;
+}
+
+section>footer{
+	background: black;
+	font-size: 10px;
+}
+
+article>header {
+	font-size: 30px;
+	padding: 10px;
+}
+
+section>header {
+	font-size: 20px;
+	padding: 5px;
+}
+
+
+body {
+	color: white;
+	font-family: Helvetica, Times, Arial, sans-serif;
+	background-image: url("images/bg.jpg");
+	background-size: auto;
+}
+
+section>section {
+	text-align: left;
+}
+
+code {
+	font-family: "Times New Roman", Times, serif;
+}
+
+.hamburgermenu {
+  position: -webkit-sticky;
+	position: sticky;
+  top: 0;
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 30px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+	margin-top: 20px;
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Dropdown Button */
+.dropbtn {
+	border: 1px solid #000;
+	border-left: 0px solid #000;
+	background-color: rgba(20,80,60,1);
+	list-style-type: none;
+	text-align: center;
+  color: white;
+  font-size: 16px;
+	padding: 20px;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	border: 1px solid #000;
+	border-bottom: 0px solid #000;
+  color: white;
+	background-color: rgba(20,80,60,1);
+  padding: 20px 20px;
+	text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
