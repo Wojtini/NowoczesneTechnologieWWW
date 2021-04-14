@@ -1,19 +1,5 @@
-#crop-the-cats {
-    width: 100px;
-    height: 80px;
-    overflow:hidden;
-    position:relative;
-}
-
-#crop-the-cats img {
-    position: absolute;
-    top: -80px;
-    left: -70px;
-}
-
-.flex-container>img{
-	height: 100px;
-	width: 100px;
+body {
+  background-color: #E1DACC;
 }
 
 .flex-container {
@@ -33,10 +19,30 @@
   background-position: 0px 0px;
 }
 
-
-.flex-container2 {
+.flex-container {
 	display: flex;
 	flex-wrap: wrap;
-  flex-direction: column;
 	justify-content: center;
+}
+
+.flex-container>img{
+	height: 100px;
+	width: auto;
+	margin: 12px;
+  border-width: 5px;
+  border-color: blue;
+}
+
+.setting{
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+#myButton {
+  font-size: 30px;
+}
+
+#myText {
+  font-size: 30px;
 }

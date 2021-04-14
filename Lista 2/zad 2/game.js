@@ -10,6 +10,9 @@ var currentRedY = -1
 
 var canvasSize = 200;
 
+var imageURL = "images/puzzle.jpg"
+var selectedImageURL = "images/puzzle.jpg"
+
 class gameTile {
   constructor(x, y) {
     this.orgx = x;
@@ -54,10 +57,10 @@ window.onload = function(){
     repaint();
 
   }, false);
-  
+
   canvas.addEventListener("click", (event) => {
-    onClick(event);
     resetHighlights();
+    onClick(event);
   });
 }
 
@@ -79,51 +82,63 @@ function myFunction() {
     }
     arr[i] = arrpom;
   }
-
+  imageURL = selectedImageURL;
   createNewRed();
-  repaint();
-  randomize();
-    // swapWithRed(0,0);
+
+  const promise = new Promise((resolve, reject) => {
+    randomize();
+    resolve();
+  });
+  promise.then((value) => {
+    repaint();
+  });
+
+  // repaint();
+  // swapWithRed(0,0);
 }
 
-function repaint(){
-  var canvas = document.getElementById('myCanvas');
+function drawTiles(canvas){
   var context = canvas.getContext('2d');
   context.globalAlpha = 1.0;
   var imageObj = new Image();
-  imageObj.src = "images/puzzle.jpg"
+  imageObj.src = imageURL;
   imageObj.onload = function() {
-  //Szerokosc i wysokosc tego elementu
-  destWidth = canvasSize/n;
-  destHeight = canvasSize/n;
-  for( i = 0; i < n; i++){
-    for (j = 0; j < n; j++) {
-        // context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, i*100, j*100, destWidth, destHeight); // old one
+      // console.log("TEST")
+    //Szerokosc i wysokosc tego elementu
+    destWidth = canvasSize/n;
+    destHeight = canvasSize/n;
+    for( i = 0; i < n; i++){
+      for (j = 0; j < n; j++) {
+          // context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, i*100, j*100, destWidth, destHeight); // old one
 
-        // draw cropped image
-        //Przycinanie
-        var sourceX = arr[i][j].x*this.width/n;
-        var sourceY = arr[i][j].y*this.height/n;
-        //Szerokosc i wysokosc przyciecia
-        var sourceWidth = this.width/n;
-        var sourceHeight = this.height/n;
-        // pozycja na canvasie
-        var destX = i*destWidth;
-        var destY = j*destHeight;
-        // console.log("new! " + destX + " " + destY);
-        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+          // draw cropped image
+          //Przycinanie
+          var sourceX = arr[i][j].x*this.width/n;
+          var sourceY = arr[i][j].y*this.height/n;
+          //Szerokosc i wysokosc przyciecia
+          var sourceWidth = this.width/n;
+          var sourceHeight = this.height/n;
+          // pozycja na canvasie
+          var destX = i*destWidth;
+          var destY = j*destHeight;
+          // console.log("new! " + destX + " " + destY);
+          if(arr[i][j]!=redTile){
+            context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+          }
 
-        if (arr[i][j].highlight) {
-          // console.log("nice" + i*destWidth + " " + j*destHeight);
-          context.globalAlpha = 0.5;
-          context.fillStyle = "blue";
-          context.fillRect(i*destWidth, j*destHeight, canvasSize/n, canvasSize/n);
+          if (arr[i][j].highlight) {
+            // console.log("nice" + i*destWidth + " " + j*destHeight);
+            context.globalAlpha = 0.5;
+            context.fillStyle = "blue";
+            context.fillRect(i*destWidth, j*destHeight, canvasSize/n, canvasSize/n);
+          }
         }
       }
-    }
-  };
-  context.globalAlpha = 1.0;
+    };
+}
 
+function drawRedTile(canvas){
+  var context = canvas.getContext('2d');
   var imageObj2 = new Image();
   imageObj2.src = "images/red.png"
   imageObj2.onload = function() {
@@ -134,8 +149,8 @@ function repaint(){
       var sourceX = redTile.x*this.width/n;
       var sourceY = redTile.y*this.height/n;
       //Szerokosc i wysokosc przyciecia
-      var sourceWidth = this.width/n;
-      var sourceHeight = this.height/n;
+      var sourceWidth = this.width;
+      var sourceHeight = this.height;
       //Szerokosc i wysokosc tego elementu
       var destWidth = canvasSize/n;
       var destHeight = canvasSize/n;
@@ -144,6 +159,19 @@ function repaint(){
       var destY = currentRedY*destHeight;
       context.drawImage(imageObj2, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
   };
+}
+
+function repaint(){
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+  //drawTiles(canvas);
+  //drawRedTile(canvas);
+  var test = false;
+  drawTiles(canvas);
+  drawRedTile(canvas);
+  resolve();
+
+
 }
 
 function eventToCanvasPos(e){
@@ -171,7 +199,7 @@ function checkIfWin(){
       }
     }
   }
-  document.getElementById("demo").innerHTML = "WYGRANA!!!!";
+  setTimeout("alert('WYGRALES');", 1);
 }
 
 function onClick(e){
@@ -250,12 +278,12 @@ function randomize(){
   console.log(redTile.y);
   while (currentRedY != 0) {
     clickedPos(currentRedX,currentRedY-1);
-    console.log("y");
+    // console.log("y");
   }
   //go left while can
   while (currentRedX != 0) {
     clickedPos(currentRedX-1,currentRedY);
-    console.log("x");
+    // console.log("x");
   }
 }
 
@@ -264,4 +292,16 @@ function createNewRed(){
   currentRedY = 0;
   redTile = arr[0][0];
   return;
+}
+//Gallery
+var oldImg = null;
+
+function changeImage(img){
+  if(oldImg != null){
+    oldImg.style.borderStyle = "none";
+  }
+  oldImg = img;
+  img.style.borderStyle = "solid";
+  console.log(img);
+  selectedImageURL = img.src;
 }

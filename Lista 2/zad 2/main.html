@@ -8,18 +8,21 @@
         <script src="game.js"></script>
       </head>
   <body>
-	<header>
-    <p id="demo">A Paragraph.</p>
-    <input type="text" id="myText" value="8">
-    <button type="button" onclick="myFunction()">Try it</button>
-	</header>
-	<main>
-    <canvas id="myCanvas" width="800" height="800"></canvas>
-	</main>
-
-
-	<footer>
-		Wojciech Maziarz, whitem200@gmail.com
-	</footer>
+  	<header>
+      <div class="setting">
+        <p id="demo">Wybierz obraz i zacznij gre.</p>
+        Wysokosc i szerokosc ukladanki:
+        <input type="text" id="myText" value="8">
+        <div class="flex-container">
+          <img src="images/puzzle.jpg" onclick="changeImage(this)" alt="1">
+          <img src="images/puzzle2.jpg" onclick="changeImage(this)" alt="2">
+          <img src="images/puzzle2.png" onclick="changeImage(this)" alt="3">
+        </div>
+        <button type="button" id="myButton" onclick="myFunction()">Start gry</button>
+      </div>
+  	</header>
+  	<main><br>
+      <canvas id="myCanvas" width="800" height="800"></canvas>
+  	</main>
   </body>
 </html >
