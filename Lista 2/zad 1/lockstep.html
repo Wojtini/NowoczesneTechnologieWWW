@@ -14,19 +14,21 @@
 		Wojciech Maziarz
 	</header>
 	<nav>
-		<ul id="normalmenu">
-		  <li><a href="main.html">Home</a></li>
-		  <li><a href="projekty.html">Projekty</a></li>
-		  <li><a href="kontakt.html">Kontakt</a></li>
-		  <li><a href="lockstep.html">Lockstep MP</a></li>
-		  <li><a href="tts.html">TTS</a></li>
-		  <li><a href="https://github.com/Wojtini/">github</a></li>
-		</ul>
+
+    <noscript>
+  		<ul id="noscriptMenu">
+  		  <li><a href="main.html">Home</a></li>
+  		  <li><a href="projekty.html">Projekty</a></li>
+  		  <li><a href="kontakt.html">Kontakt</a></li>
+  		  <li><a href="lockstep.html">Lockstep MP</a></li>
+  		  <li><a href="tts.html">TTS</a></li>
+  		  <li><a href="https://github.com/Wojtini/">github</a></li>
+  		</ul>
+    </noscript>
 
     <ul id="hamburgermenu">
         <li><h2 onclick="openNav()">&#9776; MENU</h2></li>
     </ul>
-
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="main.html">Home</a>
@@ -35,6 +37,19 @@
         <a href="lockstep.html">Lockstep MP</a>
         <a href="tts.html">TTS</a>
         <a href="https://github.com/Wojtini/">github</a>
+      </div>
+
+
+      <button onclick="myFunction()" class="dropbtn">MENU</button>
+      <div class="dropdown">
+        <div id="myDropdown" class="dropdown-content">
+          <a href="main.html">Home</a>
+          <a href="projekty.html">Projekty</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="lockstep.html">Lockstep MP</a>
+          <a href="tts.html">TTS</a>
+          <a href="https://github.com/Wojtini/">github</a>
+        </div>
       </div>
 	</nav>
 

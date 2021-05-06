@@ -46,3 +46,8 @@ body {
 #myText {
   font-size: 30px;
 }
+#myCanvas
+{
+    display: block;
+    margin: 0 auto;
+}

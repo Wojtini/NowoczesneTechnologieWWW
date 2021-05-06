@@ -1,17 +1,22 @@
 //Pozycja pustego
 var redTile;
 //Size of square
-var n = 0
+var n = 0;
 var destWidth;
 var destHeight;
-var arr = []
-var currentRedX = -1
-var currentRedY = -1
+var arr = [];
+var currentRedX = -1;
+var currentRedY = -1;
 
 var canvasSize = 200;
 
-var imageURL = "images/puzzle.jpg"
-var selectedImageURL = "images/puzzle.jpg"
+var imageURL = "images/puzzle.jpg";
+var selectedImageURL = "images/puzzle.jpg";
+
+var i;
+var j;
+var arrpom;
+var resolve;
 
 class gameTile {
   constructor(x, y) {
@@ -32,12 +37,12 @@ class gameTile {
 var canvas;
 window.onload = function(){
 
-  canvas = document.getElementById('myCanvas');
+  canvas = document.getElementById("myCanvas");
   canvasSize = canvas.width;
 
-  canvas.addEventListener('mousemove', function(event) {
+  canvas.addEventListener("mousemove", function(event) {
     if(n==0){
-      return
+      return;
     }
     var x;
     var y;
@@ -62,7 +67,7 @@ window.onload = function(){
     resetHighlights();
     onClick(event);
   });
-}
+};
 
 function resetHighlights(){
   for( i = 0; i < n; i++){
@@ -98,7 +103,7 @@ function myFunction() {
 }
 
 function drawTiles(canvas){
-  var context = canvas.getContext('2d');
+  var context = canvas.getContext("2d");
   context.globalAlpha = 1.0;
   var imageObj = new Image();
   imageObj.src = imageURL;
@@ -138,12 +143,10 @@ function drawTiles(canvas){
 }
 
 function drawRedTile(canvas){
-  var context = canvas.getContext('2d');
+  var context = canvas.getContext("2d");
   var imageObj2 = new Image();
-  imageObj2.src = "images/red.png"
+  imageObj2.src = "images/red.png";
   imageObj2.onload = function() {
-      // context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, i*100, j*100, destWidth, destHeight); // old one
-
       // draw cropped image
       //Przycinanie
       var sourceX = redTile.x*this.width/n;
@@ -162,11 +165,10 @@ function drawRedTile(canvas){
 }
 
 function repaint(){
-  var canvas = document.getElementById('myCanvas');
-  var context = canvas.getContext('2d');
+  var canvas = document.getElementById("myCanvas");
+  var context = canvas.getContext("2d");
   //drawTiles(canvas);
   //drawRedTile(canvas);
-  var test = false;
   drawTiles(canvas);
   drawRedTile(canvas);
   resolve();
@@ -227,8 +229,8 @@ function clickedPos(i, j){
 function swapWithRed(i, j){
     var pastRedX = redTile.x;
     var pastRedY = redTile.y;
-    redTile.changePos(arr[i][j].x,arr[i][j].y)
-    arr[i][j].changePos(pastRedX,pastRedY)
+    redTile.changePos(arr[i][j].x,arr[i][j].y);
+    arr[i][j].changePos(pastRedX,pastRedY);
 
 
     redTile = arr[i][j];
@@ -238,15 +240,15 @@ function swapWithRed(i, j){
 
 function checkIfNeighboursRedTile(x,y){
   if(currentRedX == x+1 && currentRedY == y){
-    return true
+    return true;
   }else if (currentRedX == x-1 && currentRedY == y) {
-    return true
+    return true;
   }else if (currentRedX == x && currentRedY == y+1) {
-    return true
+    return true;
   }else if (currentRedX == x && currentRedY == y-1) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 function randomize(){
@@ -275,7 +277,7 @@ function randomize(){
   //swapWithRed(0,0); risky
 
   //go up while can
-  console.log(redTile.y);
+  // console.log(redTile.y);
   while (currentRedY != 0) {
     clickedPos(currentRedX,currentRedY-1);
     // console.log("y");
