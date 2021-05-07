@@ -17,7 +17,7 @@
   		  <li><a href="tts.php">TTS</a></li>
   		  <li><a href="https://github.com/Wojtini/">github</a></li>
         <?php
-        // session_start();
+        session_start();
         if (isset($_SESSION["username"])) {
           echo "<li><a href='login.php'>Logowanie</a></li>";
         }else{
@@ -40,7 +40,7 @@
         <a href="https://github.com/Wojtini/">github</a>
         <?php
         // session_start();
-        if (isset($_SESSION["username"])) {
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
           echo "<a href='login.php'>Logowanie</a>";
         }else{
           echo "<a href='logout.php'>Wyloguj</a>";

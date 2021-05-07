@@ -23,6 +23,7 @@
 		system rejestracji i logowania posiadający zabezpieczenia przeciwko atakom sql injection.
 		<img src="./images/isengard.png" alt="Portret">
 
+    <div class="comments">
     <?php
     $project_id = 'isengard';
     require_once "config.php";
@@ -43,11 +44,19 @@
         }
     }
      ?>
-    <form action="new_comment.php" method="get">
-      <input type="hidden" name="project" value="isengard"><br>
-      Comment: <input type="text" name="submittext"><br>
-      <input type="submit">
-    </form>
+   </div>
+
+    <?php
+    if (isset($_SESSION["username"])) {
+      echo "<form action=\"new_comment.php\" method=\"get\">\n";
+      echo "      <input type=\"hidden\" name=\"project\" value=\"isengard\"><br>\n";
+      echo "      Comment: <input type=\"text\" name=\"submittext\"><br>\n";
+      echo "      <input type=\"submit\">\n";
+      echo "    </form>";
+    }else{
+      echo "Zaloguj sie aby zakomentowac";
+    }
+     ?>
 
 		</section>
 
@@ -78,6 +87,7 @@
 
 		<img src="./images/checkers.png" alt="Portret">
 
+        <div class="comments">
     <?php
     $project_id = "checkers";
     require_once "config.php";
@@ -98,11 +108,19 @@
         }
     }
      ?>
-    <form action="new_comment.php" method="get">
-      <input type="hidden" name="project" value="checkers"><br>
-      Comment: <input type="text" name="submittext"><br>
-      <input type="submit">
-    </form>
+   </div>
+
+    <?php
+    if (isset($_SESSION["username"])) {
+      echo "<form action=\"new_comment.php\" method=\"get\">\n";
+      echo "      <input type=\"hidden\" name=\"project\" value=\"checkers\"><br>\n";
+      echo "      Comment: <input type=\"text\" name=\"submittext\"><br>\n";
+      echo "      <input type=\"submit\">\n";
+      echo "    </form>";
+    }else{
+      echo "Zaloguj sie aby zakomentowac";
+    }
+     ?>
 
 		</section>
 
@@ -132,11 +150,20 @@
         }
     }
      ?>
-    <form action="new_comment.php" method="get">
-      <input type="hidden" name="project" value="graf"><br>
-      Comment: <input type="text" name="submittext"><br>
-      <input type="submit">
-    </form>
+
+
+
+      <?php
+      if (isset($_SESSION["username"])) {
+        echo "<form action=\"new_comment.php\" method=\"get\">\n";
+        echo "      <input type=\"hidden\" name=\"project\" value=\"graf\"><br>\n";
+        echo "      Comment: <input type=\"text\" name=\"submittext\"><br>\n";
+        echo "      <input type=\"submit\">\n";
+        echo "    </form>";
+      }else{
+        echo "Zaloguj sie aby zakomentowac";
+      }
+       ?>
 		</section>
 
 		<section>
@@ -148,6 +175,7 @@
 
 		<img src="./images/paint.png" alt="Portret">
 
+        <div class="comments">
     <?php
     $project_id = 'paint';
     require_once "config.php";
@@ -168,11 +196,19 @@
         }
     }
      ?>
-    <form action="new_comment.php" method="get">
-      <input type="hidden" name="project" value="paint"><br>
-      Comment: <input type="text" name="submittext"><br>
-      <input type="submit">
-    </form>
+   </div>
+
+    <?php
+    if (isset($_SESSION["username"])) {
+      echo "<form action=\"new_comment.php\" method=\"get\">\n";
+      echo "      <input type=\"hidden\" name=\"project\" value=\"paint\"><br>\n";
+      echo "      Comment: <input type=\"text\" name=\"submittext\"><br>\n";
+      echo "      <input type=\"submit\">\n";
+      echo "    </form>";
+    }else{
+      echo "Zaloguj sie aby zakomentowac";
+    }
+     ?>
 		</section>
 	</article>
 
